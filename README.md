@@ -5,9 +5,6 @@ Loja virtual demonstrativa para feira técnica. Catálogo com 36 produtos, carri
 ## Acesse
 
 - **Loja:** https://mega-mix-neon.vercel.app
-- **Painel administrativo:** https://mega-mix-neon.vercel.app/admin
-- **Cadastro inicial do administrador:** https://mega-mix-neon.vercel.app/admin/criar-conta
-- **Deploy na Vercel:** https://vercel.com/gamonalmatheus7-5562/mega-mix
 
 ## Tecnologias
 
