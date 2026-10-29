@@ -1,0 +1,5 @@
+# Mega Mix — direção visual
+Impeccable aplicado conforme solicitação do usuário. Brief completo autoriza construção direta.
+Loja: compra rápida em ambiente de feira, fundo branco, verde profundo #164b35 para marca e ações, vermelho #b52d34 para oferta, neutros quentes. Painel: modo Operate, tabelas legíveis e dados verificáveis.
+Referências locais efetivamente consultadas: Refero color.md (papéis de cores e neutralidade), typography.md (hierarquia e leitura); Impeccable new-work.md e craft-floor.md (estados, foco e responsividade). Refero remoto indisponível por assinatura; nenhuma referência remota foi simulada.
+Direção fixada: cabeçalho comercial compacto, banner com fotografia de alimentos, catálogo em grade de quatro colunas, preços tabulares, controles grandes, carrinho em diálogo com foco contido. Tipografia de interface nativa, sem dependência de fonte remota. Mobile: duas colunas, busca em linha própria. Fotos externas possuem fallback visual e texto alternativo; disponibilidade depende do provedor.
