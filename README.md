@@ -1,60 +1,75 @@
-# Mega Mix
+# Mega Mix — Supermercado Digital
 
-Aplicação independente do sistema empresarial da raiz. Next.js 16, React 19, TypeScript, Tailwind 4 e Supabase. Node >=22.
+Loja virtual demonstrativa para feira técnica. Catálogo com 36 produtos, carrinho, checkout simulado, estoque atômico e painel administrativo autenticado.
+
+## Acesse
+
+- **Loja:** https://mega-mix-neon.vercel.app
+- **Painel administrativo:** https://mega-mix-neon.vercel.app/admin
+- **Cadastro inicial do administrador:** https://mega-mix-neon.vercel.app/admin/criar-conta
+- **Deploy na Vercel:** https://vercel.com/gamonalmatheus7-5562/mega-mix
+
+## Tecnologias
+
+Next.js 16, React 19, TypeScript, Tailwind CSS 4, Supabase (PostgreSQL e Auth) e Vercel. Requer Node.js 22 ou superior.
+
+## Estrutura
+
+```text
+src/app/          Páginas e rotas da API
+src/components/   Loja, painel, login e componentes visuais
+src/lib/          Clientes Supabase, tipos, catálogo e utilitários
+supabase/         Schema, seed e migrações SQL
+tests/            Testes de catálogo, banco, checkout e deploy
+docs/             Configuração, imagens e verificações
+```
+
+## Executar localmente
 
 ```powershell
-cd mega-mix
 npm ci
 Copy-Item .env.example .env.local
 npm run dev
 ```
 
-Abra http://localhost:3000. Sem configuração externa, somente o catálogo de prévia e o carrinho ficam disponíveis; pedidos e administração não são simulados localmente.
+Abra http://localhost:3000. Configure as variáveis abaixo para ativar pedidos, autenticação e painel; sem elas, a loja mostra o catálogo de demonstração.
 
-## Configurar Supabase
+## Configuração do Supabase
 
-Use um projeto dedicado ao Mega Mix (schema `public`, uma única loja). Em `.env.local` configure exatamente:
+Em `.env.local`, defina:
 
-- `NEXT_PUBLIC_SUPABASE_URL`: URL do projeto.
-- `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`: chave publicável (aceita chave anon legada).
-- `SUPABASE_SERVICE_ROLE_KEY`: chave service_role, exclusivamente no servidor.
+| Variável | Uso |
+| --- | --- |
+| `NEXT_PUBLIC_SUPABASE_URL` | URL do projeto Supabase |
+| `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | Chave publicável do Supabase |
+| `SUPABASE_SERVICE_ROLE_KEY` | Chave privilegiada, somente no servidor |
+| `MEGA_MIX_BOOTSTRAP_KEY` | Código privado temporário para ativar o primeiro administrador |
 
-No SQL Editor execute **supabase/schema.sql**, **supabase/first-admin.sql** e **supabase/seed.sql**, nessa ordem. O primeiro arquivo é a migração inicial transacional; execute uma vez em projeto vazio. O seed é repetível e não redefine estoque existente. Há quatro tabelas: produtos, administradores, pedidos e itens. Os dados iniciais contêm 36 produtos fictícios, seis categorias e nenhum pedido.
+No SQL Editor do projeto Supabase, execute `supabase/schema.sql`, `supabase/first-admin.sql` e `supabase/seed.sql`, nessa ordem. O seed inclui 36 produtos e pode ser repetido sem redefinir o estoque existente.
 
-Para criar sua primeira conta no próprio site, configure também `MEGA_MIX_BOOTSTRAP_KEY` com um código privado aleatório de pelo menos 32 caracteres. Em `/admin`, clique em **Criar conta** e informe e-mail, senha com pelo menos 12 caracteres e o código. O código nunca é enviado no HTML ou no JavaScript. A primeira associação é protegida por bloqueio transacional; depois dela o cadastro inicial fecha. Remova a variável de ativação após concluir o cadastro. Não há cadastro público de novos administradores.
+Configure `MEGA_MIX_BOOTSTRAP_KEY` com pelo menos 32 caracteres aleatórios. Acesse `/admin`, escolha **Criar conta** e defina e-mail e senha (mínimo de 12 caracteres). O cadastro inicial fecha após o primeiro administrador. Remova o código do ambiente depois da ativação. Administradores adicionais podem ser criados pela área **Acessos** no painel.
 
-Como alternativa de provisionamento manual, em Authentication > Users crie um usuário com e-mail e senha. Copie seu UUID e execute no SQL Editor:
+Nunca publique `.env.local` nem exponha `SUPABASE_SERVICE_ROLE_KEY` no navegador.
 
-```sql
-insert into public.administrators(user_id) values ('UUID-DO-USUARIO');
-```
+## Publicar na Vercel
 
-Não há senha padrão nem cadastro público de administrador. Configure as políticas de senha e limites de autenticação no Supabase. Acesse `/admin` com essa conta. Cookies de autenticação são HttpOnly, SameSite=Lax e Secure em produção. A associação de administrador é revalidada no servidor em cada operação; não depende de metadados editáveis do usuário. Mutações verificam Origin.
+O projeto está hospedado na Vercel e o repositório está conectado. Para importar manualmente, selecione este repositório, use a raiz (`./`) como **Root Directory**, mantenha o framework Next.js e configure as variáveis do Supabase no ambiente de produção. A URL pública precisa estar cadastrada nas configurações de URL do Supabase Auth.
 
-## Demonstração
+## Fluxo da demonstração
 
-1. Abra a loja no celular pela URL publicada (ou IP do computador na mesma rede com `npm run dev -- --hostname 0.0.0.0`).
-2. Adicione itens, informe nome e contato e confirme o pagamento simulado.
-3. No computador, abra `/admin`; novos pedidos aparecem em até 10 segundos.
-4. Use Preparar e Concluir. Faturamento e unidades vendidas incluem exclusivamente pedidos concluídos.
-5. Um pedido pendente/em preparação pode ser cancelado; o estoque retorna uma única vez. Concluídos/cancelados são finais. Não há recebimento real ou reembolso.
+1. Abra a loja no celular e adicione produtos ao carrinho.
+2. Finalize com nome e contato; o pagamento é apenas simulado.
+3. No computador, acompanhe o pedido em `/admin` (atualização a cada 10 segundos).
+4. Atualize o status e confira os indicadores e o estoque.
 
-Carrinhos usam unidades da embalagem, inclusive produtos vendidos em pacotes de 1 kg. O banco determina os preços e soma em NUMERIC(12,2). Bloqueios de linhas em ordem estável impedem venda acima do disponível. A mesma chave de checkout retorna o mesmo pedido; mudança de conteúdo com a mesma chave é conflito. A edição de contagem compara o estoque visto pelo administrador para impedir sobrescrever vendas concorrentes. Exclusão de produto é lógica e preserva snapshots dos itens. Loja atualiza catálogo a cada 20 segundos e ao ganhar foco.
-
-RLS em todas as tabelas. Público lê apenas produtos ativos; usuário autenticado lê apenas sua própria associação administrativa. Pedidos/dados pessoais e mutações SQL são acessíveis exclusivamente pelo servidor com service_role. Nenhuma credencial privilegiada é enviada ao navegador. Paginação visual do painel mostra os últimos 200 pedidos; indicadores SQL abrangem todos os pedidos.
-
-## Vercel
-
-Importe o repositório e defina **Root Directory = mega-mix**, framework Next.js e as três variáveis acima. Use `npm run build`, padrão do Next.js. A configuração Vercel na raiz pertence ao sistema Python e não deve ser usada para este app. Não é necessário domínio ou pagamento externo para a demonstração. Cadastre a URL publicada nas configurações de URL do Supabase Auth. Não publique `.env.local`.
+O banco calcula os totais usando os preços cadastrados e bloqueia estoque insuficiente. Cancelamentos permitidos devolvem estoque uma única vez. O dashboard usa dados persistidos; não há vendas ou pagamentos reais.
 
 ## Verificações
 
 ```powershell
 npm run typecheck
-npm run build
 npm test
+npm run build
 ```
 
-`tests/database.sql` valida atomicidade, idempotência, cancelamento, totais e permissões num PostgreSQL de teste compatível com Supabase. Use apenas um banco dedicado: o teste faz rollback. `tests/browser.cjs` verifica prévia, carrinho, busca e larguras mobile/desktop com Playwright instalado na raiz. Sem credenciais Supabase, a integração remota permanece pendente de validação. Imagens ilustrativas externas Unsplash têm fallback textual quando indisponíveis.
-
-Neste repositório, o executor `.venv/Scripts/python.exe mega-mix/tests/database_runner.py` (a partir da raiz) cria um banco local descartável, instala a migração com um stub do schema `auth`, testa inclusive concorrência real e remove esse banco. Usa exclusivamente o cluster local configurado no sistema existente; não substitui validação do Supabase Auth/PostgREST remoto. Para o navegador, na pasta `mega-mix`, defina `PLAYWRIGHT_BROWSERS_PATH` apontando para `../.local/pw-browser` e execute `node tests/browser.cjs` com a loja em execução sem credenciais. Origens de imagens ilustrativas em `docs/images.md`.
+Veja `docs/verification.md` para os testes de banco e navegador, `docs/deployment.md` para configuração e `supabase/` para scripts do banco.
