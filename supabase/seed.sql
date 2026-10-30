@@ -18,8 +18,8 @@ insert into public.products(id,name,category,unit,price,old_price,stock,min_stoc
 ('00000000-0000-4000-8000-000000000015','Iogurte natural','Laticínios','pote 170 g','3.99',null,22,5,'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=500&q=80',true),
 ('00000000-0000-4000-8000-000000000016','Manteiga com sal','Laticínios','pote 200 g','10.49',null,4,5,'https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?auto=format&fit=crop&w=500&q=80',true),
 ('00000000-0000-4000-8000-000000000017','Detergente neutro','Limpeza','frasco 500 mL','2.29','2.99',45,5,'https://images.tcdn.com.br/img/img_prod/767437/detergente_ype_neutro_500ml_1035_1_20200331174744.jpg',true),
-('00000000-0000-4000-8000-000000000018','Sabão líquido','Limpeza','frasco 1 L','13.90',null,18,5,'https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=500&q=80',true),
-('00000000-0000-4000-8000-000000000019','Limpador multiuso','Limpeza','frasco 500 mL','5.49',null,28,5,'https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=500&q=80',true),
+('00000000-0000-4000-8000-000000000018','Sabão líquido','Limpeza','frasco 1 L','13.90',null,18,5,'https://www.sondadelivery.com.br/img.aspx/sku/1318365/530/1000020253.jpg',true),
+('00000000-0000-4000-8000-000000000019','Limpador multiuso','Limpeza','frasco 500 mL','5.49',null,28,5,'https://images.tcdn.com.br/img/img_prod/929266/veja_multi_uso_tradicional_500_ml_26992_1_f50cebc485d1d5e36acfb9a0431f8a23.jpg',true),
 ('00000000-0000-4000-8000-000000000020','Esponja de limpeza','Limpeza','pacote 3 un.','4.99',null,5,5,'https://lojalimpanno.vteximg.com.br/arquivos/ids/161204/site-esponja-nao-risca-3.jpg',true),
 ('00000000-0000-4000-8000-000000000021','Pão francês','Padaria','pacote 5 un.','6.90','8.50',32,5,'https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=500&q=80',true),
 ('00000000-0000-4000-8000-000000000022','Pão de forma integral','Padaria','pacote 450 g','8.99',null,20,5,'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=500&q=80',true),
@@ -29,13 +29,13 @@ insert into public.products(id,name,category,unit,price,old_price,stock,min_stoc
 ('00000000-0000-4000-8000-000000000026','Laranja-pera','Hortifruti','pacote 1 kg','5.49',null,35,5,'https://images.unsplash.com/photo-1547514701-42782101795e?auto=format&fit=crop&w=500&q=80',true),
 ('00000000-0000-4000-8000-000000000027','Açúcar refinado','Mercearia','pacote 1 kg','4.79',null,45,5,'https://down-br.img.susercontent.com/file/sg-11134201-23020-5jl554el47mve2',true),
 ('00000000-0000-4000-8000-000000000028','Óleo de soja','Mercearia','garrafa 900 mL','7.49','8.99',38,5,'https://covabra.vtexassets.com/arquivos/ids/544734-800-450?aspect=true&height=450&width=800',true),
-('00000000-0000-4000-8000-000000000029','Água mineral com gás','Bebidas','garrafa 500 mL','2.99',null,50,5,'https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=500&q=80',true),
+('00000000-0000-4000-8000-000000000029','Água mineral com gás','Bebidas','garrafa 500 mL','2.99',null,50,5,'https://drogariasp.vteximg.com.br/arquivos/ids/527804-1000-1000/681474---agua-mineral-crystal-acqualia-com-gas-500ml.jpg?v=637787380395000000',true),
 ('00000000-0000-4000-8000-000000000030','Chá gelado de limão','Bebidas','garrafa 1 L','6.99',null,22,5,'https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=500&q=80',true),
-('00000000-0000-4000-8000-000000000031','Leite desnatado','Laticínios','caixa 1 L','4.59',null,30,5,'https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=500&q=80',true),
-('00000000-0000-4000-8000-000000000032','Queijo minas frescal','Laticínios','peça 300 g','14.90','17.90',16,5,'https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?auto=format&fit=crop&w=500&q=80',true),
+('00000000-0000-4000-8000-000000000031','Leite desnatado','Laticínios','caixa 1 L','4.59',null,30,5,'https://static.raizs.com.br/products/leite-desnatado-1l-piracanjuba.png',true),
+('00000000-0000-4000-8000-000000000032','Queijo minas frescal','Laticínios','peça 300 g','14.90','17.90',16,5,'https://bretas.vtexassets.com/arquivos/ids/218719/6675b7ef48a079339b1d4627.jpg?v=638545876347400000',true),
 ('00000000-0000-4000-8000-000000000033','Papel-toalha folha dupla','Limpeza','pacote 2 rolos','6.49',null,28,5,'https://bretas.vtexassets.com/arquivos/ids/218387/6675b79e48a079339b1d4490.jpg',true),
 ('00000000-0000-4000-8000-000000000034','Desinfetante pinho','Limpeza','frasco 500 mL','5.99','7.49',32,5,'https://paulistaoatacadista.vtexassets.com/arquivos/ids/292740/DesinfetanteUrcaPinho500ml1.jpg',true),
-('00000000-0000-4000-8000-000000000035','Pão de centeio','Padaria','unidade 400 g','10.90',null,15,5,'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=500&q=80',true),
-('00000000-0000-4000-8000-000000000036','Mini croissants','Padaria','pacote 4 un.','12.90','15.90',18,5,'https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=500&q=80',true)
+('00000000-0000-4000-8000-000000000035','Pão de centeio','Padaria','unidade 400 g','10.90',null,15,5,'https://images.tcdn.com.br/img/img_prod/1224045/pao_tipo_alemao_de_centeio_vital_500g_4933_1_c66adc41ebe54c7a7538f03da1557b91.jpg',true),
+('00000000-0000-4000-8000-000000000036','Mini croissants','Padaria','pacote 4 un.','12.90','15.90',18,5,'https://www.paodeacucar.com/img/uploads/1/634/32989634.png',true)
 on conflict(id) do nothing;
 commit;
