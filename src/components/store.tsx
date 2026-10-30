@@ -13,7 +13,12 @@ export default function Store({
   initialProducts: Product[];
   mode: "preview" | "live" | "error";
 }) {
-  const [products, setProducts] = useState(initialProducts),
+  const validProducts = (items: Product[]) =>
+    items.filter(
+      (product) =>
+        Number.isFinite(Number(product.price)) && Number(product.price) > 0,
+    );
+  const [products, setProducts] = useState(validProducts(initialProducts)),
     [search, setSearch] = useState(""),
     [category, setCategory] = useState("Todos"),
     [offers, setOffers] = useState(false),
@@ -61,7 +66,7 @@ export default function Store({
       fetch("/api/products", { cache: "no-store" })
         .then(async (r) => {
           if (r.ok) {
-            setProducts(await r.json());
+            setProducts(validProducts(await r.json()));
             setNotice("");
           } else
             setNotice(

@@ -7,11 +7,18 @@ export async function GET() {
       .from("products")
       .select("*")
       .eq("active", true)
+      .gt("price", 0)
       .order("name");
     if (error) throw error;
-    return NextResponse.json(data, {
+    return NextResponse.json(
+      (data ?? []).filter(
+        (product) =>
+          Number.isFinite(Number(product.price)) && Number(product.price) > 0,
+      ),
+      {
       headers: { "Cache-Control": "no-store" },
-    });
+      },
+    );
   } catch (e) {
     return failure(e);
   }
