@@ -17,11 +17,7 @@ export default function ProductImage({
       src={src}
       alt={name}
       loading="lazy"
-      style={
-        src.includes("images.unsplash.com")
-          ? undefined
-          : { objectFit: "contain", padding: 12, background: "#fff" }
-      }
+      style={{ objectFit: "contain", padding: 12, background: "#fff" }}
       onError={() => setFailed(true)}
     />
   );
