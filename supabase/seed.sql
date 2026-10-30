@@ -5,7 +5,7 @@ insert into public.products(id,name,category,unit,price,old_price,stock,min_stoc
 ('00000000-0000-4000-8000-000000000002','Maçã gala','Hortifruti','pacote 1 kg','8.90',null,30,5,'https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=500&q=80',true),
 ('00000000-0000-4000-8000-000000000003','Tomate italiano','Hortifruti','bandeja 1 kg','6.49',null,25,5,'https://images.unsplash.com/photo-1546094096-0df4bcaaa337?auto=format&fit=crop&w=500&q=80',true),
 ('00000000-0000-4000-8000-000000000004','Abacate fresco','Hortifruti','unidade','4.99',null,18,5,'https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?auto=format&fit=crop&w=500&q=80',true),
-('00000000-0000-4000-8000-000000000005','Arroz branco Mega Mix','Mercearia','pacote 5 kg','24.90','29.90',40,5,'https://mercantilnovaera.vteximg.com.br/arquivos/ids/14973/arroz-tio-joao-5kg.jpg',true),
+('00000000-0000-4000-8000-000000000005','Arroz branco Mega Mix','Mercearia','pacote 5 kg','24.90','29.90',40,5,'https://paulistaoatacadista.vtexassets.com/arquivos/ids/297646/ARROZAGULHINHACAMIL5KGTIPO1.jpg?v=638080564774470000',true),
 ('00000000-0000-4000-8000-000000000006','Feijão carioca','Mercearia','pacote 1 kg','7.99',null,35,5,'https://mambodelivery.vtexassets.com/arquivos/ids/167357/feijao-carioca-tipo-1-kicaldo-1kg.jpg',true),
 ('00000000-0000-4000-8000-000000000007','Macarrão rigatoni','Mercearia','pacote 500 g','4.49',null,48,5,'https://mambodelivery.vtexassets.com/arquivos/ids/197781/Macarrao-C-Ovos-Argola-Adria-500g.jpg?v=638334060732330000',true),
 ('00000000-0000-4000-8000-000000000008','Café torrado e moído','Mercearia','pacote 500 g','18.90','22.90',24,5,'https://assets.ibecom.com.br/ib.item.image.large/l-5a70403098f547eab97139cea26ff972.jpeg',true),
